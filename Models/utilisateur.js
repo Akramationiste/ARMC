@@ -1,11 +1,11 @@
-const assert = require('assert');
+// const assert = require('assert');
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const utilisateurSchema = new Schema ({
-    code: String,
+    code: Number,
     nom: String,
-    numero_telephone: String,
+    numero_telephone: Number,
     adresse_email: String,
     nom_utilisateur: String,
     mot_de_passe: String,
@@ -25,4 +25,5 @@ const utilisateurSchema = new Schema ({
           }
 });
 
-const utilisateur = mongoose.model('utilisateur', utilisateurSchema);
+const utilisateur = mongoose.model("utilisateur", utilisateurSchema);
+module.exports = utilisateur;
