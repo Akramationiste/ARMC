@@ -42,8 +42,8 @@ const register = (req, res, next) => {
 
 const login = (req, res, next) => {
 
-    // var user_name : req.body.user_name,
-    // var password : hashedPass
+    user_name : req.body.user_name,
+     password = hashedPass
 
     user.findOne({$or: [{email:user_name},{phone:user_name}]})
      .then(user => {
@@ -84,6 +84,8 @@ module.exports = {
 module.exports = {
     login
 }
+
+
 
 
 
