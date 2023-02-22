@@ -1,24 +1,31 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose"
+import express from "express"
 
 mongoose.Promise = global.Promise
 
-const express = require("express");
+
 const app = express()
 
+import {authentificationroutes} from "../ARMC/Routes/authentificationroutes";
+app.use('/authentification', authentificationroutes);
 
-
+////connexion avec la base de données////
     mongoose.connect("mongodb+srv://chanelhm50:iPqIxFQtJrkHRqkW@cluster0.q8id5cn.mongodb.net/?retryWrites=true&w=majority").then(() => {
     console.log('connected');
+
     app.listen(8080, ()=>{
         console.log("app running on 8080");
     })
    
 }).catch(err => console.log(err))
 
+
+
 app.use(express.json())
 const typeRoutes = require("./Routes/type")
 
 app.use("/type", typeRoutes)
+
 
 app.get("/", (req, res) => {
     res.send("working")

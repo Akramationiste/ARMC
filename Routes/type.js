@@ -1,8 +1,8 @@
 const express = require("express");
-const ajoutertype = require("../Controlers/type");
+const ajoutertype = require("../Controllers/type");
 
 const typeRoutes = express.Router()
 
-typeRoutes.post("/", ajoutertype)
+typeRoutes.post("../", ajoutertype) 
 
 module.exports = typeRoutes
