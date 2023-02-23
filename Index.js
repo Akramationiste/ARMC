@@ -1,11 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const router = require("./Routes/auth");
 const app = express();
+
+const apiRouter = require('./Routes/api');
+const authRouter = require('./Routes/auth');
+const authMiddleware = require('./Middlewhare/authm');
+
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(bodyParser.json());
+
+
+// register auth routes
+app.use('/auth', authRouter);
+
+// use auth middleware for api routes
+app.use('/api', authMiddleware, apiRouter);
+
+
 
 app.listen(3000, () => console.log('Server started'));
 
@@ -24,7 +38,6 @@ mongoose.connection.once('open', function(){
 
 app.use(express.json());
 
-const apiRouter = require('./Routes/api');
+// const apiRouter = require('./Routes/api');
 app.use('/api', apiRouter);
-
-
+app.use("/auth", router);
