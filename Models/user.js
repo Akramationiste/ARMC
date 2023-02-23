@@ -1,8 +1,6 @@
-const assert = require('assert');
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const candidatSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -28,9 +26,7 @@ const candidatSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    diplome: String,
-    experience: String
+   
 });
 
-const candidat = mongoose.model("candidat", candidatSchema);
-module.exports = candidat;
+module.exports = mongoose.model('user', userSchema);

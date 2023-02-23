@@ -1,9 +1,6 @@
-const assert = require('assert');
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-
-const offreSchema = new Schema ({
+const offreSchema = new mongoose.Schema ({
     Type_offre: {
         type: String,
         required: true,
@@ -27,7 +24,4 @@ const offreSchema = new Schema ({
 
 });
 
-const offre = mongoose.model("offre", offreSchema);
-module.exports = offre;
-
-// module.exports = offre = mongoose.model("offre", offreSchema);
+module.exports =  mongoose.model("offre", offreSchema);
